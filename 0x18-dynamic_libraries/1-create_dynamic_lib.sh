@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Compile all the .c files in the current directory into object files
+for file in *.c; do
+    gcc -c -fPIC $file
+done
+
+# Link all the object files into a single dynamic library
+gcc -shared -o liball.so *.o
+
+# Clean up the object files
+rm -f *.o
+
